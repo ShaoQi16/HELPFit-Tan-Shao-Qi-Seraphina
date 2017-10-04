@@ -19,6 +19,17 @@ body{
 
 }
 
+#navbtn{
+  margin-top: 10px;
+}
+
+#UDbtn{
+  margin-left:10px;
+  color:#4C5C6A;
+}
+
+
+
 #box-search{
   margin-top:-20;
   padding:0;
@@ -40,6 +51,7 @@ body{
     left: 0;
     width: 100%;
 }
+
 #caption-desktop {
   display: inline;
 }
@@ -353,7 +365,11 @@ hr{
 
 .editpopup{
     padding: 20;
-    background-color: rgba(222,223,223,0.8);
+    background-color: rgba(222,223,223,0.9);
+}
+
+.btn-link{
+  color:#4C5C6A;
 }
 
 #updatetitle{display: none}
@@ -364,6 +380,7 @@ hr{
 #updateclasstype{display: none}
 #updatemax{display: none}
 #updatenum{display: none}
+#updatenotes{display:none}
 
 
 #btn1{

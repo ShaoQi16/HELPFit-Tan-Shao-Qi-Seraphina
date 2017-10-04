@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Secular+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
-
+  <script type = "text/javascript" src="HELPfit.js"></script>
 </head>
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -25,13 +25,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" href="homepage.html"><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">HOME</a></li>
+      <li><a href="homepage.html">HOME</a></li>
       <li><a href="#">SESSIONS</a></li>
-      <li><a href="#">TRAINING RECORDS</a></li>
+      <li><a href="viewtrainingrecordsmember.html">TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
@@ -41,9 +41,9 @@
             <br>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; User's fullname</li>
             <br>
-            <li><a href="#"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
-            <li><a href="#"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
+            <li><a href="login.html"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
     </ul>
   </div>
@@ -60,7 +60,7 @@
             <div class="hidden-xs">
             <h3 id="hpHeading">Begin your journey.</h3>
             <br>
-            <button id="hpbutton" type="button" class="btn-lg"> Start now! </button></h3>
+            <button id="hpbutton" type="button" class="btn-lg" onclick="location.href='#'"> Start now! </button></h3>
           </div>
         </div>
           <div id="caption-mobile" class="caption">
@@ -77,13 +77,11 @@
     <img class="img-circle" src="fitnesspic8.jpg" alt="" width="140" height="140">
     <h2 id="headings">Sessions</h2>
     <p id="grey">Allows users to register or record a new training session.</p>
-    <p id="blue"><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
   </div>
   <div class="col-sm-5 col-xs-12 text-center">
     <img class="img-circle" src="fitnesspic7.jpg" alt="" width="140" height="140">
     <h2 id="headings">Training Records</h2>
     <p id="grey">Allows users to view their past training history or update a training record</p>
-    <p id="blue"><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
     <br>
   </div>
 </div>

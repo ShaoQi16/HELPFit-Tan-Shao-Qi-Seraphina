@@ -7,7 +7,7 @@
   <title> Sign Up </title>
   <link rel="stylesheet" type="text/css" href="HELPFit.css">
   <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
-  <script type = "text/javascript"  src = "signup.js"></script>
+  <script type = "text/javascript" src="HELPfit.js"></script>
 </head>
 <body id="signupbody">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -21,11 +21,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand"><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"> Log In</a></li>
+        <li><a href="login.html"> Log In</a></li>
     </ul>
   </div>
 </div>
@@ -106,7 +106,8 @@
           <button id="signupbutton" type="button" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>
           <br>
           <div style="text-align:center">
-          <p id="grey"><b> Already a user?<button id ="grey" type="button" class="btn-link">Log In </button> </b></p>
+          <p id="grey"><b> Already a user?<button id ="grey" type="button"
+             class="btn-link" onclick="window.href='login.html'">Log In </button> </b></p>
         </div>
   </div>
 </div>
