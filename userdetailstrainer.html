@@ -4,27 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
-  <title> Review Trainer </title>
+  <title> User details </title>
   <link rel="stylesheet" type="text/css" href="HELPFit.css">
   <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
-  <script type = "text/javascript">
-    function review(){
-      document.getElementById("reviewpopup").style.display ='block';
-    }
-    function submit(){
-        alert("The review has been submitted. Thank you.");
-        document.getElementById("reviewpopup").style.display ='none';
-        var btn = document.getElementById("reviewbtn"); btn.disabled = true;
-    }
-  </script>
+  <script type= "text/javascript" src="userdetails.js"></script>
 </head>
+
 
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-<div id="reviewTrainerbg">
+<div id="userdetailsbg">
   <nav id="navbar"class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -42,7 +33,7 @@
         <li><a href="#">TRAINING RECORDS</a></li>
       </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
+        <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown" >
           <span class="glyphicon glyphicon-user"></span> User's username
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -57,82 +48,66 @@
   </div>
 </div>
 </nav>
+<br>
 
-<div id="reviewtrainer" class="container">
-  <h3 id="pagetitle"> Training Record </h3>
-  <p id="grey" class="hidden-xs">&nbsp; View your record and review your trainer.</p>
+<div class="row">
+<div id="userdetails" class="container col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+  <h3 id="pagetitle"> User details </h3>
+  <p id="grey"> Update your user details</p>
   <br>
-  <div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
-  <table class="table">
-      <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Fee</th>
-        <th>Status</th>
-        <th>Class Type</th>
-        <th>Max</th>
-        <th>Num</th>
-      </tr>
-      <tr>
-        <td>xxxxxxx</td>
-        <td>13/9/17</td>
-        <td>17:00</td>
-        <td>RMxxx</td>
-        <td>x</td>
-        <td>xxxxx</td>
-        <td>xx</td>
-        <td>xx</td>
-      </tr>
-    </table>
-</div>
-</div>
-</div>
-<br><br>
-
-  <div class="row">
-  <div id="reviewtrainer2" class="col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10 text-center">
-    <br><br>
-      <div class="row">
-      <div class="col-sm-offset-1 col-sm-1">
-      <img class="img-circle" src="fitnesspic17.jpg" alt="" width="140" height="140">
-      </div>
-      <div class="col-sm-offset-5">
-        <br>
-        <h5 id="trainer"> Trainer name: xxxxxxxxx</h5>
-        <h5 id="trainer"> Speciality:  xxxxxxxxx</h5>
-        <button id="reviewbtn" type="button" class="btn-success btn-sm" onclick="review()"> Review </button>
-      </div>
-    </div>
-    </div>
-  </div>
-
-    <div id="reviewpopup" class="row">
-    <div id="review" class="container col-sm-offset-3 col-sm-6">
-      <div class="row">
-        <div class="form-group">
-          <br><br>
-          <label class="col-xs-12 col-sm-3">Rate him/her:</label>
-          <div class="rating col-sm-8 col-xs-12 text-left">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          </div>
-      </div>
-    </div>
-    <br>
+  <div class="updatedetails">
+    <form name="signupform">
     <div class="row">
-      <div class="form-group">
-          <label class="col-xs-12 col-sm-2">Comments:</label>
-          <textarea class="col-sm-7 col-xs-offset-1 col-xs-11" rows="5" id="comment"></textarea>
-        </div>
+      <label class="col-xs-12 col-sm-3">Full Name:</label>
+      <div class="form-group col-sm-7 col-xs-9">
+          <input type="text" name="fullname" class="form-control input-sm" id="inputFullname" placeholder="xxxxxxx">
+      </div>
     </div>
-    <br>
-    <div class="col-sm-offset-9 col-xs-offset-10">
-    <button id="btn1" type="button" class="btn-secondary btn-sm" onclick="submit()"> Submit</button>
+    <div class="row">
+      <label class="col-xs-12 col-sm-3">Email:</label>
+      <div class="form-group col-sm-7 col-xs-9">
+          <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="xxxxxxxxxx@xxxxx.com">
+          <p id="emailerror2" class="errormessage"> Your email is in a wrong format, please enter again. </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-xs-12 col-sm-3">Username:</label>
+      <div class="form-group col-sm-7 col-xs-12">
+        <p>    xxxxxxxxxxxxxxxxxx </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-xs-12 col-sm-3">Change password:</label>
+      <div class="form-group col-sm-7 col-xs-9">
+          <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="......."
+          oninput="repeatpassword()">
+          <p id="passworderror" class="errormessage"> Please enter at least 6 characters. </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-xs-12 col-sm-3">Repeat new password:</label>
+      <div class="form-group col-sm-7 col-xs-9">
+          <input type="password" name="repeatpassword" class="form-control input-sm" id="inputrepeatPassword">
+           <p id="repeatpassworderror" class="errormessage"> Your passwords do not match, please try again. </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-xs-12 col-sm-3">Speciality:</label>
+      <div class="form-group col-sm-7 col-xs-9">
+          <input type="text" name="speciality" class="form-control input-sm" id="inputSpeciality" placeholder="xxxxxxxx">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-offset-8 col-xs-offset-6">
+    <button id="btn1" type="button" class="btn-success btn-sm" onclick="validateForm()"> Update </button>
+    <button id="btn2" type="button" class="btn-secondary btn-sm"> Cancel </button>
   </div>
-  </div>
+</form>
 </div>
-  <br>
+</div>
+</div>
 </div>
 <footer>
     <br>
@@ -161,5 +136,6 @@
      <p id="copyright"class="text-center">Copyright &copy; 2017 HELPFit</p>
      <br>
 </footer>
+
 </body>
 </html>

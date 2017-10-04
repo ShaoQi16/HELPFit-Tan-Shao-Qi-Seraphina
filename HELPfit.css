@@ -1,6 +1,7 @@
-#html{
-  width:100%;
+body{
+  overflow-x: hidden;
 }
+
 #logo{
   width:100;
   height:auto;
@@ -158,6 +159,56 @@ display: none;
   align: center;
 }
 
+#memberbtn{
+  background-color: transparent;
+  color: #4C5C6A;
+  border-style:solid;
+  box-shadow: 0;
+  height:30px;
+  width:fill;
+  border-radius: 10px;
+  border-color: #4C5C6A;
+}
+
+#memberbtn:hover{
+  background-color: #4C5C6A;
+  color: #DEDFDF;
+}
+
+#trainerbtn{
+  background-color: transparent;
+  color: #4C5C6A;
+  border-style:solid;
+  box-shadow: 0;
+  height:30px;
+  width:fill;
+  border-radius: 10px;
+  border-color: #4C5C6A;
+}
+#trainerbtn:hover{
+  background-color: #4C5C6A;
+  color: #DEDFDF;
+}
+
+#or{
+  color:#4C5C6A;
+  font-size: 15px;
+  font-family: 'Mallanna', sans-serif;
+}
+
+#dropdown {display: none}
+#speciality{display:none}
+#fullnameerror{display:none}
+#emailerror {display: none}
+#emailerror2 {display: none}
+#usernameerror {display: none}
+#passworderror {display: none}
+#repeatpassworderror {display: none}
+#specialityerror {display: none}
+.errormessage{
+  color: red;
+  text-align: left;
+}
 
 #signupbutton{
   border-radius: 0;
@@ -216,6 +267,17 @@ hr{
   background-color: rgba(222,223,223,0.8);
   height:80%;
 }
+#trainerrating{
+  border-style: solid;
+  border-color: #4C5C6A;
+  font-family: 'Catamaran', sans-serif;
+  color:#4C5C6A;
+  font-size: 17px;
+  width:190;
+  padding:10;
+  position: absolute;
+   right: 0px;
+}
 
 #userdetailsbg{
   background-image: url("fitnesspic1.jpg");
@@ -231,13 +293,19 @@ hr{
   color: #4C5C6A;
 }
 
+#repeatnewpassword{display: none}
+
 #reviewTrainerbg{
-  background-image: url("fitnesspic16.jpg");
+  background-image: url("fitnesspic20.jpg");
   background-size:cover;
   height:auto;
 }
 
 #reviewTrainer{
+    background-color: rgba(222,223,223,0.8);
+}
+
+#reviewTrainer2{
     background-color: rgba(222,223,223,0.8);
     height:auto;
     padding-bottom: 30px;
@@ -250,12 +318,29 @@ hr{
   color:#4C5C6A;
 }
 #review{
-  margin:auto;
+  height:auto;
+  padding-top: 10px;
   width:60%;
-  color:#4C5C6A;
+  color:#DEDFDF;
   font-size: 16px;
   font-family: 'Mallanna', sans-serif;
 }
+
+#reviewpopup{display: none}
+#reviewbtn{
+  background-color: #4C5C6A;
+  color: #DEDFDF;
+  border-style:none;
+}
+#reviewbtn:hover{
+  background-color:  #CECECE;
+    color: #4C5C6A;
+}
+#reviewbtn:disabled{
+  background-color:  #CECECE;
+    color: #4C5C6A;
+}
+
 #updatetrainingbg{
   background-image: url("fitnesspic18.jpg");
   background-size:cover;
@@ -265,6 +350,21 @@ hr{
 #updatetraining{
   background-color: rgba(222,223,223,0.8);
 }
+
+.editpopup{
+    padding: 20;
+    background-color: rgba(222,223,223,0.8);
+}
+
+#updatetitle{display: none}
+#updatedate{display: none}
+#updatetime{display: none}
+#updatefee{display: none}
+#updatestatus{display: none}
+#updateclasstype{display: none}
+#updatemax{display: none}
+#updatenum{display: none}
+
 
 #btn1{
   background-color: #4C5C6A;
@@ -288,7 +388,8 @@ hr{
 }
 
 .scrollable{
-  overflow:scroll;
+  overflow-y:scroll;
+  overflow-x: hidden;
    height:70%;
 }
 

@@ -7,13 +7,13 @@
   <title> Sign Up </title>
   <link rel="stylesheet" type="text/css" href="HELPFit.css">
   <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
-
+  <script type = "text/javascript"  src = "signup.js"></script>
 </head>
 <body id="signupbody">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-
-  <nav class="navbar navbar-inverse">
+<div class="row">
+  <nav id="navbar" class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand navbar-center" href="#">HELPFit</a>
+      <a class="navbar-brand" href="#"><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
@@ -30,42 +30,71 @@
   </div>
 </div>
   </nav>
-  <br>
 
     <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-6">
       <div id="signup" class="col-xs-12  col-sm-9" style="text-align:center">
           <h2 id="pagetitle"><b> Create an account </b></h2>
+          <br>
+          <form name="signupform">
           <div class="row">
-          <div class="form-group" style="text-align:center">
-            <h5 id="pagetitle"><b><input type="checkbox"> Member &nbsp; OR &nbsp;<input type="checkbox"> Trainer</b></h5>
+          <div class="form-group col-sm-5">
+            <button id="memberbtn" type="button" class="btn-success btn-block" onclick="member()"> Member </button>
+          </div>
+          <div>
+            <div class="col-sm-2">
+            <h5 id="or"> OR </h5>
+          </div>
+          </div>
+          <div class="form-group col-sm-5">
+            <button id="trainerbtn" type="button" class="btn-success btn-block"  onclick="trainer()"> Trainer </button>
           </div>
           </div>
 
           <div class="row">
           <div class="form-group">
-                <input type="text" name="fullname" class="form-control input-sm" id="inputName" placeholder="Full Name">
+                <input type="text" name="fullname" class="form-control input-sm" id="inputName" placeholder="Full Name" required>
+                <p id="fullnameerror" class="errormessage"> Please enter your full name.</p>
             </div>
           </div>
 
           <div class="row">
           <div class="form-group">
-              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email">
+              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email" required>
+              <p id="emailerror" class="errormessage"> Please enter your email. </p>
+              <p id="emailerror2" class="errormessage"> Your email is in a wrong format, please enter again. </p>
           </div>
           </div>
 
           <div class="row">
           <div class="form-group">
-              <input type="text" name="username" class="form-control input-sm" id="inputUsername" placeholder="Username">
+              <input type="text" name="username" class="form-control input-sm" id="inputUsername" placeholder="Username" required>
+              <p id="usernameerror" class="errormessage"> Please enter your username. </p>
           </div>
           </div>
 
           <div class="row">
-          <div class="form-group">
-              <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password">
-          </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password" required>
+                <p id="passworderror" class="errormessage"> Please enter at least 6 characters. </p>
+            </div>
           </div>
 
           <div class="row">
+            <div class="form-group">
+                <input type="password" name="repeatpassword" class="form-control input-sm" id="inputrepeatPassword"
+                 placeholder="Repeat Password" required>
+                 <p id="repeatpassworderror" class="errormessage"> Your passwords do not match, please try again. </p>
+            </div>
+          </div>
+
+          <div id="speciality" class="row">
+            <div class="form-group">
+                <input type="text" name="speciality" class="form-control input-sm" placeholder="Speciality" required>
+                <p id="specialityerror" class="errormessage"> Please enter your speciality. </p>
+            </div>
+          </div>
+
+          <div id="dropdown" class="row">
           <div class="form-group">
             <select name="level" class="form-control">
                 <option>Beginner</option><option>Advanced</option><option>Expert</option>
@@ -73,20 +102,20 @@
           </div>
           </div>
 
-          <button id="signupbutton" type="button" class="btn-lg btn-block"> Sign Up</button>
+        </form>
+          <button id="signupbutton" type="button" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>
           <br>
           <div style="text-align:center">
           <p id="grey"><b> Already a user?<button id ="grey" type="button" class="btn-link">Log In </button> </b></p>
         </div>
-
-
-    </div>
   </div>
-
-  <footer id="footer">
+</div>
+</div>
+<br><br><br>
+  <footer>
       <br>
        <p id="copyright"class="text-center">Copyright &copy; 2017 HELPFit</p>
+       <br>
   </footer>
-
 </body>
 </html>

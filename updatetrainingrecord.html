@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+  <script type = "text/javascript"></script>
 
 </head>
 
@@ -67,19 +68,82 @@
         <th>Num</th>
       </tr>
       <tr>
-        <td>xxxxxxx</td>
-        <td>13/9/17</td>
-        <td>17:00</td>
-        <td>RMxxx</td>
-        <td>x</td>
-        <td>xxxxx</td>
-        <td>xx</td>
-        <td>xx</td>
+        <td onclick="updatetitle()">xxxxxxx</td>
+        <td onclick="updatedate()">13/9/17</td>
+        <td onclick="updatetime()">17:00</td>
+        <td onclick="updatefee()">RMxxx</td>
+        <td onclick="updatestatus()">x</td>
+        <td onclick="updateclasstype()">xxxxx</td>
+        <td onclick="updatemax()">xx</td>
+        <td onclick="updatemin()">xx</td>
       </tr>
     </table>
 </div>
 </div>
 </div>
+<br><br>
+
+  <div class="row">
+    <div id="updateTitle" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Title: </h5>
+      <input type="text" name="title" class="form-control input-sm" id="inputtitle" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateDate" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Date: </h5>
+      <input type="text" name="date" class="form-control input-sm" id="inputdate" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateTime" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Time: </h5>
+      <input type="text" name="time" class="form-control input-sm" id="inputtime" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateFee" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Fee: </h5>
+      <input type="text" name="fee" class="form-control input-sm" id="inputfee" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateStatus" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Status: </h5>
+      <input type="text" name="status" class="form-control input-sm" id="inputstatus" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateClasstype" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Class type: </h5>
+      <input type="text" name="classtype" class="form-control input-sm" id="inputclasstype" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateMax" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Max participation: </h5>
+      <input type="text" name="max" class="form-control input-sm" id="inputmax" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+    <div id="updateNum" class="col-sm-offset-4 col-sm-4 col-xs-offset-1 col-xs-10 editpopup">
+      <h4><b>Edit</b></h4>
+      <h5> Num participation: </h5>
+      <input type="text" name="num" class="form-control input-sm" id="inputnum" required>
+      <br>
+      <button id="btn1" type="button" class="btn-success btn-sm" onclick="update()"> Update </button>
+    </div>
+  </div>
+  <br>
+
+
 
 
 
