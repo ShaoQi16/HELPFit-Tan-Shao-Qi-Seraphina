@@ -1,3 +1,4 @@
+
 body{
   overflow-x: hidden;
 }
@@ -11,12 +12,12 @@ body{
   font-size: 16px;
   margin:0;
   padding: 5px 5px;
+  overflow-x: hidden;
 }
 
 #navbar{
   border-radius: 0;
   font-family: 'Mallanna', sans-serif;
-
 }
 
 #navbtn{
@@ -75,6 +76,10 @@ display: none;
 #caption-mobile {
   display: inline;
 }
+}
+
+#hoverbtn:hover{
+   border: 3px solid black; 
 }
 
 #hpheading{
@@ -217,6 +222,7 @@ display: none;
 #passworderror {display: none}
 #repeatpassworderror {display: none}
 #specialityerror {display: none}
+#uniqueerror{display: none}
 .errormessage{
   color: red;
   text-align: left;
@@ -270,6 +276,12 @@ footer{
 hr{
   border-color: #CECECE;
 }
+
+#trainingbg{
+  background-image: url("fitnesspic4.jpg");
+  background-size: cover;
+}
+
 #trainingrecordsbg{
   background-image: url("fitnesspic12.jpg");
   background-size:cover;
@@ -353,6 +365,12 @@ hr{
     color: #4C5C6A;
 }
 
+@media only screen and (max-width: 680px){
+  .scrollbar{
+    overflow-x: scroll;
+  }
+}
+
 #updatetrainingbg{
   background-image: url("fitnesspic18.jpg");
   background-size:cover;
@@ -408,6 +426,14 @@ hr{
   overflow-y:scroll;
   overflow-x: hidden;
    height:70%;
+}
+
+@media only screen and (max-width: 680px){
+  .scrollable{
+    overflow-y:scroll;
+    overflow-x: scroll;
+     height:70%;
+  }
 }
 
 .rating {

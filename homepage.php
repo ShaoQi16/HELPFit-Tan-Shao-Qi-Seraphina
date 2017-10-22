@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+ ?>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -25,25 +30,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.html"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.html">HOME</a></li>
-      <li><a href="#">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordsmember.html">TRAINING RECORDS</a></li>
+      <li><a href="homepage.php">HOME</a></li>
+      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
+      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-user"></span> User's username
+          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $_SESSION["username"]; ?>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; User's fullname</li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
             <br>
             <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
-            <li><a href="login.html"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
+            <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
     </ul>
   </div>
@@ -51,21 +56,20 @@
 </nav>
 
 
+
 <div class="row" id="box-search">
     <div class="text-center text-white">
         <img src="fitnessPic5.jpg" alt="" class="img-responsive">
         <div id="caption-desktop"class="caption">
-            <h1 id="welcomeMessage">Welcome, Username</h1>
-            <br>
+            <h1 id="welcomeMessage">Welcome, <?php echo $_SESSION["username"]; ?></h1><br>
             <div class="hidden-xs">
-            <h3 id="hpHeading">Begin your journey.</h3>
-            <br>
-            <button id="hpbutton" type="button" class="btn-lg" onclick="location.href='#'"> Start now! </button></h3>
+            <h3 id="hpHeading">Begin your journey.</h3><br>
+            <button id="hpbutton" type="button" class="btn-lg"
+            onclick="location.href='recordNewTrainingSession.php'"> Start now! </button></h3>
           </div>
         </div>
           <div id="caption-mobile" class="caption">
-              <h1 id="welcomeMessage">Welcome, Username</h1>
-              <br>
+              <h1 id="welcomeMessage">Welcome, <?php echo $_SESSION["username"]; ?></h1><br>
           </div>
     </div>
 </div>
@@ -74,12 +78,12 @@
 <div id="area" class="row">
   <br><br>
   <div class="col-sm-6 col-xs-12 text-center">
-    <img class="img-circle" src="fitnesspic8.jpg" alt="" width="140" height="140">
+    <a href="recordNewTrainingSession.php"><img id="hoverbtn" class="img-circle" src="fitnesspic8.jpg" alt="" width="140" height="140"></a>
     <h2 id="headings">Sessions</h2>
     <p id="grey">Allows users to register or record a new training session.</p>
   </div>
   <div class="col-sm-5 col-xs-12 text-center">
-    <img class="img-circle" src="fitnesspic7.jpg" alt="" width="140" height="140">
+    <a href="viewtrainingrecordstrainer.php"><img id="hoverbtn" class="img-circle" src="fitnesspic7.jpg" alt="" width="140" height="140"></a>
     <h2 id="headings">Training Records</h2>
     <p id="grey">Allows users to view their past training history or update a training record</p>
     <br>
@@ -124,25 +128,14 @@
   <footer>
       <br>
       <table align="center">
-        <tr><td>
-            <a id="iconcolor" class ="btn btn-social-icon btn-youtube" href="http://youtube.com//">
-              <span class="fa fa-youtube fa-2x"></span></a>
-          </td>
-          <td>
-            <a id="iconcolor" class ="btn btn-social-icon btn-facebook" href="http://facebook.com//">
-              <span class="fa fa-facebook fa-2x"></span>
-            </a>
-          </td>
-          <td>
-            <a id="iconcolor" class ="btn btn-social-icon btn-instagram" href="http://instagram.com//">
-              <span class="fa fa-instagram fa-2x"></span>
-            </a>
-          </td>
-          <td>
-            <a id="iconcolor" class ="btn btn-social-icon btn-twitter" href="http://twitter.com//">
-              <span class="fa fa-twitter fa-2x"></span>
-            </a>
-          </td>
+        <tr><td><a id="iconcolor" class ="btn btn-social-icon btn-youtube" href="http://youtube.com//">
+              <span class="fa fa-youtube fa-2x"></span></a></td>
+          <td><a id="iconcolor" class ="btn btn-social-icon btn-facebook" href="http://facebook.com//">
+              <span class="fa fa-facebook fa-2x"></span></a></td>
+          <td><a id="iconcolor" class ="btn btn-social-icon btn-instagram" href="http://instagram.com//">
+              <span class="fa fa-instagram fa-2x"></span></a></td>
+          <td><a id="iconcolor" class ="btn btn-social-icon btn-twitter" href="http://twitter.com//">
+              <span class="fa fa-twitter fa-2x"></span></a></td>
         </tr>
         </table>
        <p id="copyright"class="text-center">Copyright &copy; 2017 HELPFit</p>

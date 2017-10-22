@@ -4,15 +4,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
-  <title> View Training Records Trainer</title>
-  <link rel="stylesheet" type="text/css" href="HELPFit.css">
+  <title> Register Training Session</title>
+  <link rel="stylesheet" type="text/css" href="HELPFit2.css">
     <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 
 </head>
 
-<div id="trainingrecordsbg">
-<body>
+<div >
+<body id="regSession">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
@@ -24,14 +24,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" href="homepage.html"><img id="logo" src="fitnessLogo.png"></a>
+
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-      <li><a href="homepage.html">HOME</a></li>
-      <li><a href="#">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordsmember.html">TRAINING RECORDS</a></li>
-    </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="homepage.html">HOME</a></li>
+        <li><a href="registerForTrainingSession.html">SESSIONS</a></li>
+        <li><a href="viewtrainingrecordsmember.html">TRAINING RECORDS</a></li>
+      </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
           <span class="glyphicon glyphicon-user"></span> User's username
@@ -40,87 +41,71 @@
             <br>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; User's fullname</li>
             <br>
-            <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><a href="#"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
-            <li><a href="login.html"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
+            <li><a href="#"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
     </ul>
   </div>
 </div>
 </nav>
 
-<div id="trainingrecords" class="container col-sm-10  col-sm-offset-1">
-  <div class="row">
-  <div class="col-sm-6">
-  <h3 id="pagetitle"> Training Records </h3>
-  <p id="grey" class="hidden-xs"> View your past records. Click on the training session to update.</p>
-</div>
-<div class="col-sm-5 col-sm-offset-right-1 hidden-xs text-right">
-  <br><br>
-  <p id="trainerrating"><b> Your average rating: 5.0 </b></p>
-</div>
-</div>
+<div id="regTSession" class="container col-sm-10  col-sm-offset-1">
+  <h3 id="pagetitle">Select a Training Session </h3>
   <br>
   <div class="scrollable">
-  <table id="trainingrecordstb" class="table table-hover">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Session ID</th>
         <th>Title</th>
         <th>Date</th>
         <th>Time</th>
+        <th>Fee</th>
         <th>Type</th>
+        <th>Status</th>
+        <th>Trainer</th>
+        <th>Stars</th>
+        <th>Speciality</th>
       </tr>
     </thead>
     <tbody>
-      <tr onclick="location.href='updatetrainingrecordpersonal.html'">
-        <td>1000</td>
-        <td>xxxxxxx xxxxxxxxxxxxxxxxxxxx</td>
-        <td>13/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
+      <tr onclick="return confirm('Registered!')">
+        <td>S1234</td>
+        <td>Let's Exercise!</td>
+        <td>29/09/17</td>
+        <td>08:00</td>
+        <td>RM200</td>
+        <td>Sports</td>
+        <td id="status-1">-</td>
+        <td>Audrey Hepburn</td>
+        <td>5</td>
+        <td>Sports</td>
+
       </tr>
-      <tr onclick="location.href='updatetrainingrecord.html'">
-        <td>2354</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>15/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
+      <tr onclick="return confirm('FULL! Unable to Register')">
+        <td>S5678</td>
+        <td>Let's Dance</td>
+        <td>30/09/17</td>
+        <td>14:00</td>
+        <td>RM150</td>
+        <td>Dance</td>
+        <td id="status-2">Full</td>
+        <td>Krysten Ritter</td>
+        <td>4</td>
+        <td>Dance</td>
       </tr>
-      <tr onclick="location.href='updatetrainingrecord.html'">
-        <td>3342</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>16/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
-      <tr onclick="location.href='updatetrainingrecordpersonal.html'">
-        <td>3643</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>17/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
-      </tr>
-      <tr onclick="location.href='updatetrainingrecord.html'">
-        <td>4465</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>19/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
-      <tr onclick="location.href='updatetrainingrecordpersonal.html'">
-        <td>4756</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>20/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
-      </tr>
-      <tr onclick="location.href='updatetrainingrecord.html'">
-        <td>5342</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>21/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
+      <tr onclick="return confirm('Registered!')">
+        <td>S9101</td>
+        <td>I am Diana Prince</td>
+        <td>01/10/17</td>
+        <td>20:00</td>
+        <td>RM250</td>
+        <td>MMA</td>
+        <td id="status-3">Available</td>
+        <td>Gal Gadot</td>
+        <td>-</td>
+        <td>MMA</td>
       </tr>
     </tbody>
   </table>
@@ -128,9 +113,7 @@
 </div>
 </div>
 
-
-
-<footer>
+<footer id="footer">
     <br>
     <table align="center">
       <tr><td>
@@ -157,6 +140,7 @@
      <p id="copyright"class="text-center">Copyright &copy; 2017 HELPFit</p>
      <br>
 </footer>
+
 </body>
 </div>
 </html>

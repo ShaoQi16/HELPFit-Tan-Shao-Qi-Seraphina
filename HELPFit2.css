@@ -1,0 +1,288 @@
+#html{
+  width:100%;
+  height: auto;
+}
+#logo{
+  width:100;
+  height:auto;
+}
+
+#mynavbar{
+  font-size: 16px;
+  margin:0;
+  padding: 5px 5px;
+}
+
+#body{
+  padding:10px;
+  padding-bottom: 60px;
+}
+
+#navbar{
+  border-radius: 0;
+  font-family: 'Mallanna', sans-serif;
+
+}
+
+#caption-desktop {
+  display: inline;
+}
+
+#caption-mobile {
+display: none;
+}
+
+@media only screen and (max-width: 680px) {
+  .caption{
+    position:absolute ;
+    top: 10%;
+    left: 0;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  #caption-desktop {
+    display: none;
+}
+
+#caption-mobile {
+  display: inline;
+}
+}
+
+#area{
+  background-color:#DEDFDF;
+  width:auto;
+}
+
+#headings{
+  font-weight: bold;
+  font-family: 'Mallanna', sans-serif;
+  color:#4C5C6A;
+}
+
+#grey{
+  font-family: 'Catamaran', sans-serif;
+  color:#4C5C6A;
+  font-size: 17px;
+}
+
+#title{
+  font-weight: bold;
+  font-family: 'Mallanna', sans-serif;
+  color:#4C5C6A;
+  font-size: 50px;
+}
+#content{
+  color:#4C5C6A;
+  font-size: 20px;
+  font-family: 'Mallanna', sans-serif;
+}
+
+#pagetitle{
+  font-family: 'Catamaran', sans-serif;
+  color:#4C5C6A;
+  font-weight: bold;
+}
+
+#newTrainingBody{
+  background-image: url("newTrainingBody.jpg");
+  background-position: center;
+  background-size:auto;
+  height:auto;
+}
+
+#chooseDate{
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+#Fee{
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+#maxP{
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+#classType{
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+#inputTitle{
+  padding:15px;
+  font-size: 20px;
+}
+
+#feeInput{
+  padding:10px;
+}
+
+#currency{
+  padding:10px;
+  padding-top: 5px;
+  padding-bottom: 1px;
+}
+
+#chooseTime{
+  font-family: 'Catamaran', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+
+#regSession{
+  background-image: url("newRegBody.jpg");
+  background-size:cover;
+}
+#regTSession{
+  background-color: rgba(222,223,223,0.8);
+  height:80%;
+}
+
+#color{
+  color:white;
+}
+#copyright{
+  color:#CECECE;
+}
+#iconcolor{
+  color:#CECECE;
+}
+#iconcolor:hover{
+  color:#95A7B0;
+}
+
+#white{
+  color:white;
+}
+
+#testing{
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom:10px;
+  background: rgba(222,223,223, 0.8);
+  align: center;
+  height: 95%;
+}
+
+h4{
+  color: black;
+}
+p{
+  color:black;
+}
+
+footer{
+   background-color: black;
+   position:relative;
+   bottom: 0;
+   width:100%;
+ }
+
+ #footer{
+   background-color: black;
+   position:absolute;
+   bottom: 0;
+   width:100%;
+ }
+
+ #footer2{
+   background-color: black;
+   position: absolute;
+   bottom: -140;
+   width:100%;
+   height: 80px;
+ }
+
+#black{
+  color:black;
+}
+
+#blue{
+  color: #95A7B0;
+}
+
+hr{
+  border-color: #CECECE;
+}
+
+.scrollable{
+  overflow-x: hidden;
+  overflow-y: scroll;
+   height:70%;
+}
+
+#whiteback{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fefefe;
+    opacity: 0.7;
+    z-index: 9999;
+}
+#dlgbox{
+    display: none;
+    position: fixed;
+    width: 380px;
+    z-index: 9999;
+    border-radius: 10px;
+    background-color: #95A7B0;
+}
+#dlg-header{
+    background-color: #4C5C6A;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    padding: 5px;
+    margin: 10px 10px 0 10px;
+}
+#dlg-body{
+    background-color: #CECECE;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+}
+#dlg-footer{
+    background-color: #4C5C6A;
+    text-align: right;
+    padding: 3px;
+    margin: 0 10px 10px 10px;
+}
+
+#dlg-footer button{
+    background-color: #1A191A;
+    color: white;
+    padding: 3px;
+    border: 0;
+}
+
+#status-1{
+}
+
+#status-2{
+  color: red;
+  font-style: oblique;
+}
+
+#status-3{
+  color: #228B22;
+  font-weight: bold;
+}

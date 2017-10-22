@@ -90,8 +90,6 @@ function validateForm() {
   document.getElementById("passworderror").style.display ='none';
     document.getElementById("repeatpassworderror").style.display ='none';
     document.getElementById("specialityerror").style.display ='none';
-    alert("An account has been made for you. Please log in.");
-    window.location="homepage.html";
   return true;
 }
 function validateForm2() {
@@ -146,6 +144,13 @@ function updatetitle(){
   document.getElementById("updateClasstype").style.display ='none';
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
+}
+function updatetitle2(){
+  document.getElementById("updateTitle").style.display ='block';
+  document.getElementById("updateDate").style.display ='none';
+  document.getElementById("updateTime").style.display ='none';
+  document.getElementById("updateFee").style.display ='none';
+  document.getElementById("updateStatus").style.display ='none';
   document.getElementById("updateNotes").style.display ='none';
 }
 function updatedate(){
@@ -157,6 +162,13 @@ function updatedate(){
   document.getElementById("updateClasstype").style.display ='none';
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
+}
+function updatedate2(){
+  document.getElementById("updateTitle").style.display ='none';
+  document.getElementById("updateDate").style.display ='block';
+  document.getElementById("updateTime").style.display ='none';
+  document.getElementById("updateFee").style.display ='none';
+  document.getElementById("updateStatus").style.display ='none';
   document.getElementById("updateNotes").style.display ='none';
 }
 function updatetime(){
@@ -168,6 +180,13 @@ function updatetime(){
   document.getElementById("updateClasstype").style.display ='none';
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
+}
+function updatetime2(){
+  document.getElementById("updateTitle").style.display ='none';
+  document.getElementById("updateDate").style.display ='none';
+  document.getElementById("updateTime").style.display ='block';
+  document.getElementById("updateFee").style.display ='none';
+  document.getElementById("updateStatus").style.display ='none';
   document.getElementById("updateNotes").style.display ='none';
 }
 function updatefee(){
@@ -179,6 +198,13 @@ function updatefee(){
   document.getElementById("updateClasstype").style.display ='none';
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
+}
+function updatefee2(){
+  document.getElementById("updateTitle").style.display ='none';
+  document.getElementById("updateDate").style.display ='none';
+  document.getElementById("updateTime").style.display ='none';
+  document.getElementById("updateFee").style.display ='block';
+  document.getElementById("updateStatus").style.display ='none';
   document.getElementById("updateNotes").style.display ='none';
 }
 function updatestatus(){
@@ -190,6 +216,13 @@ function updatestatus(){
   document.getElementById("updateClasstype").style.display ='none';
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
+}
+function updatestatus2(){
+  document.getElementById("updateTitle").style.display ='none';
+  document.getElementById("updateDate").style.display ='none';
+  document.getElementById("updateTime").style.display ='none';
+  document.getElementById("updateFee").style.display ='none';
+  document.getElementById("updateStatus").style.display ='block';
   document.getElementById("updateNotes").style.display ='none';
 }
 function updateclasstype(){
@@ -240,4 +273,18 @@ function update(){
   document.getElementById("updateMax").style.display ='none';
   document.getElementById("updateNum").style.display ='none';
   alert("Your detail has been updated");
+}
+function update2(){
+  document.getElementById("updateTitle").style.display ='none';
+  document.getElementById("updateDate").style.display ='none';
+  document.getElementById("updateTime").style.display ='none';
+  document.getElementById("updateFee").style.display ='none';
+  document.getElementById("updateNotes").style.display ='none';
+  alert("Your detail has been updated");
+}
+function validateFormLogIn(){
+    window.location="signup.html";
+}
+function uniqueUsername(){
+  document.getElementById("uniqueUsername").style.display = "block";
 }

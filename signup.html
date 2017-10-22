@@ -33,86 +33,70 @@
 
     <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-6">
       <div id="signup" class="col-xs-12  col-sm-9" style="text-align:center">
-          <h2 id="pagetitle"><b> Create an account </b></h2>
-          <br>
-          <form name="signupform">
+          <h2 id="pagetitle"><b> Create an account </b></h2><br>
+          <form name="signupform" action="server.php" method="post">
           <div class="row">
           <div class="form-group col-sm-5">
-            <button id="memberbtn" type="button" class="btn-success btn-block" onclick="member()"> Member </button>
+            <input id="memberbtn" name="user" value="Member" type="button" class="btn-success btn-block" onclick="member()">
           </div>
           <div>
-            <div class="col-sm-2">
-            <h5 id="or"> OR </h5>
-          </div>
+            <div class="col-sm-2"><h5 id="or"> OR </h5></div>
           </div>
           <div class="form-group col-sm-5">
-            <button id="trainerbtn" type="button" class="btn-success btn-block"  onclick="trainer()"> Trainer </button>
-          </div>
-          </div>
-
+            <input id="trainerbtn" name="user" value="Trainer" type="button" class="btn-success btn-block"  onclick="trainer()">
+          </div></div>
           <div class="row">
           <div class="form-group">
-                <input type="text" name="fullname" class="form-control input-sm" id="inputName" placeholder="Full Name" required>
+                <input type="text" name="fullname" class="form-control input-sm" id="inputName"
+                placeholder="Full Name">
                 <p id="fullnameerror" class="errormessage"> Please enter your full name.</p>
-            </div>
-          </div>
-
+            </div></div>
           <div class="row">
           <div class="form-group">
-              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email" required>
+              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email">
               <p id="emailerror" class="errormessage"> Please enter your email. </p>
               <p id="emailerror2" class="errormessage"> Your email is in a wrong format, please enter again. </p>
-          </div>
-          </div>
-
+          </div></div>
           <div class="row">
           <div class="form-group">
-              <input type="text" name="username" class="form-control input-sm" id="inputUsername" placeholder="Username" required>
+              <input type="text" name="username" class="form-control input-sm" id="inputUsername"
+              placeholder="Username">
               <p id="usernameerror" class="errormessage"> Please enter your username. </p>
-          </div>
-          </div>
-
+              <p id="uniqueerror" class="uniqueUsername"> Username is taken, please enter a new username.</p>
+          </div></div>
           <div class="row">
             <div class="form-group">
-                <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password" required>
+                <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password">
                 <p id="passworderror" class="errormessage"> Please enter at least 6 characters. </p>
-            </div>
-          </div>
-
+            </div></div>
           <div class="row">
             <div class="form-group">
                 <input type="password" name="repeatpassword" class="form-control input-sm" id="inputrepeatPassword"
-                 placeholder="Repeat Password" required>
+                 placeholder="Repeat Password">
                  <p id="repeatpassworderror" class="errormessage"> Your passwords do not match, please try again. </p>
-            </div>
-          </div>
-
+            </div></div>
           <div id="speciality" class="row">
             <div class="form-group">
-                <input type="text" name="speciality" class="form-control input-sm" placeholder="Speciality" required>
+                <input type="text" name="speciality" class="form-control input-sm" placeholder="Speciality">
                 <p id="specialityerror" class="errormessage"> Please enter your speciality. </p>
-            </div>
-          </div>
-
+            </div></div>
           <div id="dropdown" class="row">
           <div class="form-group">
             <select name="level" class="form-control">
                 <option>Beginner</option><option>Advanced</option><option>Expert</option>
-            </select>
-          </div>
-          </div>
+            </select></div></div>
 
+            <button id="signupbutton" type="submit" name="signup" value="Sign Up" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>
         </form>
-          <button id="signupbutton" type="button" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>
           <br>
           <div style="text-align:center">
           <p id="grey"><b> Already a user?<button id ="grey" type="button"
-             class="btn-link" onclick="window.href='login.html'">Log In </button> </b></p>
-        </div>
-  </div>
-</div>
-</div>
-<br><br><br>
+             class="btn-link" onclick="location.href='login.php';">Log In </button> </b></p>
+        </div></div></div></div>
+
+
+
+<br>
   <footer>
       <br>
        <p id="copyright"class="text-center">Copyright &copy; 2017 HELPFit</p>
