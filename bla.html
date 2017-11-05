@@ -1,0 +1,11 @@
+<a href="test.php?page_name=<?php echo $this_month; ?>">
+
+  <?php echo('<a href="updatetrainingrecordpersonal.php?sessionID='.$sessionID.'">'. $row['sessionID'].'</a>');?>
+
+
+  <script>
+    $('trainingrecordstb').on('click', 'tr', function () {
+        var sessionID = $(this).find('td:first').text();
+        window.location = updatetrainingrecordpersonal.php + '?data=' + value;
+      });
+    </script>

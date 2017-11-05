@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$username = $_GET['username'];
  ?>
 
 <html>
@@ -44,9 +44,10 @@ session_start();
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["username"]; ?></li>
             <br>
-            <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li>
+              <?php echo('<a href="userdetailstrainer.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -61,7 +62,7 @@ session_start();
     <div class="text-center text-white">
         <img src="fitnessPic5.jpg" alt="" class="img-responsive">
         <div id="caption-desktop"class="caption">
-            <h1 id="welcomeMessage">Welcome, <?php echo $_SESSION["username"]; ?></h1><br>
+            <h1 id="welcomeMessage">Welcome, <?php echo $_SESSION["username"]; ?></h1>
             <div class="hidden-xs">
             <h3 id="hpHeading">Begin your journey.</h3><br>
             <button id="hpbutton" type="button" class="btn-lg"

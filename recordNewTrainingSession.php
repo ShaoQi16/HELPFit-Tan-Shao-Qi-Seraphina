@@ -46,7 +46,7 @@ session_start();
             <br>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
             <br>
-            <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -57,7 +57,7 @@ session_start();
 
 
 
-<div id="trainingbg">
+
 <div class="row text-center">
   <h3 id="title"> Choose a type of training:</h3>
   <br><br><br>
@@ -71,7 +71,7 @@ session_start();
     <br><br>
   </div>
 </div>
-</div>
+
 <footer>
     <br>
     <table align="center">

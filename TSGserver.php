@@ -22,8 +22,8 @@ session_start();
    $sql = "INSERT INTO  trainingsession (title, date, time, fee, status, type)
             VALUES('$title','$date','$time','$fee','$status','$type')";
    mysqli_query($con, $sql);
-   $sql2 = "INSERT INTO grouptraining (title, classType, maxParticipants)
-          VALUES('$title','$classType','$maxParticipants')";
+   $sql2 = "INSERT INTO grouptraining (classType, maxParticipants)
+          VALUES('$classType','$maxParticipants')";
    mysqli_query($con, $sql2);
    echo "<script>
              alert('Your session has been added');

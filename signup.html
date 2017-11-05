@@ -25,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.html"> Log In</a></li>
+        <li><a href="login.php"> Log In</a></li>
     </ul>
   </div>
 </div>
@@ -33,46 +33,47 @@
 
     <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-6">
       <div id="signup" class="col-xs-12  col-sm-9" style="text-align:center">
-          <h2 id="pagetitle"><b> Create an account </b></h2><br>
+          <h2 id="pagetitle"><b> Create an account </b></h2>
           <form name="signupform" action="server.php" method="post">
           <div class="row">
-          <div class="form-group col-sm-5">
-            <input id="memberbtn" name="user" value="Member" type="button" class="btn-success btn-block" onclick="member()">
-          </div>
-          <div>
-            <div class="col-sm-2"><h5 id="or"> OR </h5></div>
-          </div>
-          <div class="form-group col-sm-5">
-            <input id="trainerbtn" name="user" value="Trainer" type="button" class="btn-success btn-block"  onclick="trainer()">
-          </div></div>
+          <label class="radio col-sm-5">
+            <input name="user" value="Member" type="radio" checked="checked">
+            <div class="btn col-sm-12" id="memberbtn" onclick="member()"> Member </div>
+          </label>
+            <div class="col-sm-2"><h5 id="or"><br> OR </h5></div>
+
+          <label class="radio col-sm-5">
+            <input name="user" value="Trainer" type="radio">
+            <div class="btn col-sm-12" id="trainerbtn" onclick="trainer()"> Trainer </div>
+          </label></div>
           <div class="row">
           <div class="form-group">
                 <input type="text" name="fullname" class="form-control input-sm" id="inputName"
-                placeholder="Full Name">
+                placeholder="Full Name" required>
                 <p id="fullnameerror" class="errormessage"> Please enter your full name.</p>
             </div></div>
           <div class="row">
           <div class="form-group">
-              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email">
+              <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="Email" required>
               <p id="emailerror" class="errormessage"> Please enter your email. </p>
               <p id="emailerror2" class="errormessage"> Your email is in a wrong format, please enter again. </p>
           </div></div>
           <div class="row">
           <div class="form-group">
               <input type="text" name="username" class="form-control input-sm" id="inputUsername"
-              placeholder="Username">
+              placeholder="Username" required>
               <p id="usernameerror" class="errormessage"> Please enter your username. </p>
               <p id="uniqueerror" class="uniqueUsername"> Username is taken, please enter a new username.</p>
           </div></div>
           <div class="row">
             <div class="form-group">
-                <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="Password" required>
                 <p id="passworderror" class="errormessage"> Please enter at least 6 characters. </p>
             </div></div>
           <div class="row">
             <div class="form-group">
                 <input type="password" name="repeatpassword" class="form-control input-sm" id="inputrepeatPassword"
-                 placeholder="Repeat Password">
+                 placeholder="Repeat Password" required>
                  <p id="repeatpassworderror" class="errormessage"> Your passwords do not match, please try again. </p>
             </div></div>
           <div id="speciality" class="row">
@@ -83,7 +84,7 @@
           <div id="dropdown" class="row">
           <div class="form-group">
             <select name="level" class="form-control">
-                <option>Beginner</option><option>Advanced</option><option>Expert</option>
+                <option value="Beginner">Beginner</option><option value="Advanced">Advanced</option><option value="Expert">Expert</option>
             </select></div></div>
 
             <button id="signupbutton" type="submit" name="signup" value="Sign Up" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>

@@ -79,7 +79,7 @@ display: none;
 }
 
 #hoverbtn:hover{
-   border: 3px solid black; 
+   border: 3px solid #4C5C6A;
 }
 
 #hpheading{
@@ -175,16 +175,23 @@ display: none;
   background: rgba(222,223,223, 0.8);
   align: center;
 }
-
+radio{
+  cursor:pointer;
+}
+.radio input{
+  visibility: hidden;
+}
 #memberbtn{
-  background-color: transparent;
-  color: #4C5C6A;
+  background-color: #4C5C6A;
+  color: #DEDFDF;
   border-style:solid;
+  border-width: medium;
   box-shadow: 0;
-  height:30px;
+  height:35px;
   width:fill;
   border-radius: 10px;
   border-color: #4C5C6A;
+  cursor: pointer;
 }
 
 #memberbtn:hover{
@@ -196,8 +203,9 @@ display: none;
   background-color: transparent;
   color: #4C5C6A;
   border-style:solid;
+  border-width: medium;
   box-shadow: 0;
-  height:30px;
+  height:35px;
   width:fill;
   border-radius: 10px;
   border-color: #4C5C6A;
@@ -207,13 +215,17 @@ display: none;
   color: #DEDFDF;
 }
 
+#hide{
+  visibility: hidden;
+}
+
 #or{
   color:#4C5C6A;
   font-size: 15px;
   font-family: 'Mallanna', sans-serif;
+  height:10px;
 }
 
-#dropdown {display: none}
 #speciality{display:none}
 #fullnameerror{display:none}
 #emailerror {display: none}
@@ -258,6 +270,8 @@ footer{
    bottom: 0;
    width:100%;
  }
+
+
  #footer{
    background-color: black;
    position:absolute;

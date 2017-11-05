@@ -1,8 +1,5 @@
 <?php
-  session_start();
-      $con = new mysqli('localhost','root','','HELPFit');
-      $sql = "SELECT sessionID,title, date, time, type FROM trainingsession";
-      $result = $con ->query($sql);
+session_start();
  ?>
 
 <html>
@@ -11,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
-  <title> View Training Records Trainer</title>
+  <title> View Training Records Member</title>
   <link rel="stylesheet" type="text/css" href="HELPFit.css">
     <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
@@ -22,6 +19,7 @@
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
   <nav id="navbar" class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -52,24 +50,14 @@
           </ul></a></li>
     </ul>
   </div>
-</div>
-</nav>
-
+  </div>
+  </nav>
 
 
 <div id="trainingrecords" class="container col-sm-10  col-sm-offset-1">
-  <div class="row">
-  <div class="col-sm-6">
   <h3 id="pagetitle"> Training Records </h3>
-  <p id="grey" class="hidden-xs"> View your past records. Click on the sessionID to update.</p>
-</div>
-<div class="col-sm-5 col-sm-offset-right-1 hidden-xs text-right">
-  <br><br>
-  <p id="trainerrating"><b> Your average rating: 5.0 </b></p>
-</div>
-</div>
+  <p id="grey" class="hidden-xs">&nbsp; View your past records. Click on the training session to review your trainer.</p>
   <br>
-
   <div class="scrollable">
   <table id="trainingrecordstb" class="table table-hover">
     <thead>
@@ -82,33 +70,62 @@
       </tr>
     </thead>
     <tbody>
-        <?php
-                  while($row = $result->fetch_assoc()){
-        ?>
-        <tr>
-        <td><?php
-                if($row['type'] == "Personal"){
-                  echo('<a href="updatetrainingrecordpersonal.php?session_ID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
-                }
-                if($row['type'] == "Group"){
-                  echo('<a href="updatetrainingrecord.php?session_ID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
-                }
-
-             ?>
-                </td>
-        <td><?php echo $row['title']; ?></td>
-        <td><?php echo $row['date']; ?></td>
-        <td><?php echo $row['time']; ?></td>
-        <td><?php echo $row['type']; ?></td>
-        <?php
-      }
-      ?>
+      <tr onclick="location.href='reviewtrainerpersonal.html'">
+        <td>1000</td>
+        <td>xxxxxxx xxxxxxxxxxxxxxxxxxxx</td>
+        <td>13/9/17</td>
+        <td>17:00</td>
+        <td>Personal</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainer.html'">
+        <td>2354</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>15/9/17</td>
+        <td>17:00</td>
+        <td>Group</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainer.html'">
+        <td>3342</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>16/9/17</td>
+        <td>17:00</td>
+        <td>Group</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainerpersonal.html'">
+        <td>3643</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>17/9/17</td>
+        <td>17:00</td>
+        <td>Personal</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainer.html'">
+        <td>4465</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>19/9/17</td>
+        <td>17:00</td>
+        <td>Group</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainerpersonal.html'">
+        <td>4756</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>20/9/17</td>
+        <td>17:00</td>
+        <td>Personal</td>
+      </tr>
+      <tr onclick="location.href='reviewtrainer.html'">
+        <td>5342</td>
+        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
+        <td>21/9/17</td>
+        <td>17:00</td>
+        <td>Group</td>
       </tr>
     </tbody>
   </table>
 </div>
 </div>
 </div>
+
+
 
 <footer>
     <br>

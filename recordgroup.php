@@ -71,7 +71,7 @@ session_start();
           </div>
 
           <div class="row">
-            <h5 id="chooseDate">Choose A Date: </h5>
+            <h5 id="chooseDate">Choose A Date and time: </h5>
           <div class="form-group">
             <div id="datetimepicker" class="input-append date">
             </div>
@@ -89,24 +89,12 @@ session_start();
             </script>
 
           <div id="datetimepicker4" class="input-append" style="text-align:left" required>
-            <input data-format="dd-MM-yyyy" type="text" name="date"></input>
-            <span class="add-on">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-              </i>
-            </span>
+            <input data-format="dd-MM-yyyy" type="date" name="date" class="input-sms"></input>
           </div>
-        <script type="text/javascript">
-          $(function() {
-            $('#datetimepicker4').datetimepicker({
-              pickTime: false
-            });
-          });
-        </script>
           </div>
           </div>
 
           <div class="row">
-            <h5 id="chooseTime">Choose A Time: </h5>
           <div class="form-group">
             <div id="datetimepicker3" class="input-append" style="text-align:left">
               <input data-format="hh:mm:ss" type="text" name="time"></input>
@@ -148,10 +136,7 @@ session_start();
             <h5 id="classType">Select A Class Type</h5>
           <div class="form-group">
             <select name="classType" class="form-control">
-              <<option>-- Select a Type --</option>
-                <option>Sports</option>
-                <option>MMA</option>
-                  <option>Dance</option>
+                <option>Sports</option><option>MMA</option><option>Dance</option>
             </select>
           </div>
           </div>

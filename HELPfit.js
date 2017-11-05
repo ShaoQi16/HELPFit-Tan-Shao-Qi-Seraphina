@@ -118,12 +118,9 @@ function validateForm2() {
       return false;
     }
   }
-
   document.getElementById("emailerror2").style.display ='none';
   document.getElementById("passworderror").style.display ='none';
   document.getElementById("repeatpassworderror").style.display ='none';
-  alert("Updates on your details have been made.");
-  window.location="homepage.html";
   return true;
 
 }

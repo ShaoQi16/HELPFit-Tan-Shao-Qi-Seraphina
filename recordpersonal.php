@@ -92,19 +92,8 @@ session_start();
             </script>
 
           <div id="datetimepicker4" class="input-append" style="text-align:left" required>
-            <input data-format="dd-MM-yyyy" type="text" name="date" class="input-lg"></input>
-            <span class="add-on">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-              </i>
-            </span>
+            <input data-format="dd-MM-yyyy" type="date" name="date" class="input-sm"></input>
           </div>
-        <script type="text/javascript">
-          $(function() {
-            $('#datetimepicker4').datetimepicker({
-              pickTime: false
-            });
-          });
-        </script>
           </div>
           </div>
 

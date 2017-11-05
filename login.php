@@ -38,9 +38,22 @@
 
   <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-6">
     <div id="signup" class="col-xs-12  col-sm-9" style="text-align:center">
-        <h2 id="pagetitle"><b> Log In</b></h2>
-        <br>
+        <h2 id="pagetitle"><b> Log in</b></h2>
         <form name="loginform" action="server.php" method="post">
+          <div class="row">
+          <label class="radio col-sm-5">
+            <input name="user2" value="Member" type="radio" checked="checked">
+            <div class="btn col-sm-12" id="memberbtn" onclick="member()"> Member </div>
+          </label>
+          <div>
+            <div class="col-sm-2"><h5 id="or"><br> OR </h5></div>
+          </div>
+          <label class="radio col-sm-5">
+            <input name="user2" value="Trainer" type="radio">
+            <div class="btn col-sm-12" id="trainerbtn" onclick="trainer()"> Trainer </div>
+          </label>
+        </div>
+          <br>
           <div class="row">
           <div class="form-group">
                 <input type="text" name="username" class="form-control input-lg" id="inputUsername"
@@ -53,7 +66,7 @@
                   placeholder="Password" required>
               </div>
             </div>
-            <?php echo $_SESSION["error"]; ?>
+            <br>
             <button id="signupbutton" name="login" type="submit" class="btn-lg btn-block"> Log In to HELPFit</button>
         </form>
         <br>

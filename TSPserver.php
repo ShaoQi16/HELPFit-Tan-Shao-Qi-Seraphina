@@ -20,8 +20,8 @@ session_start();
    $sql = "INSERT INTO  trainingsession (title, date, time, fee, status, type)
             VALUES('$title','$date','$time','$fee','$status','$type')";
    mysqli_query($con, $sql);
-   $sql2 = "INSERT INTO personaltraining (title, notes)
-          VALUES('$title','$notes')";
+   $sql2 = "INSERT INTO personaltraining (notes)
+          VALUES('$notes')";
    mysqli_query($con, $sql2);
    echo "<script>
              alert('Your session has been added');
