@@ -1,4 +1,12 @@
-<html id = "html">
+<?php
+  session_start();
+        $con = new mysqli('localhost','root','','HELPFit');
+        $sql = "SELECT *
+         FROM trainingsession";
+        $result = $con ->query($sql);
+ ?>
+
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,22 +36,23 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">SESSIONS</a></li>
-        <li><a href="#">TRAINING RECORDS</a></li>
+        <li><a href="homepage.php">HOME</a></li>
+        <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
+        <li><a href="registerForTrainingSession.php">REGISTER SESSION</a></li>
+        <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
       </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-user"></span> User's username
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; User's fullname</li>
-            <br>
-            <li><a href="#"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
-            <li class="divider"></li>
-            <li><a href="#"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
-          </ul></a></li>
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $_SESSION["username"]; ?>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <br>
+              <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
+              <br>
+              <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+              <li class="divider"></li>
+              <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
+            </ul></a></li>
     </ul>
   </div>
 </div>
@@ -69,43 +78,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr onclick="return confirm('Registered!')">
-        <td>S1234</td>
-        <td>Let's Exercise!</td>
-        <td>29/09/17</td>
-        <td>08:00</td>
-        <td>RM200</td>
-        <td>Sports</td>
-        <td id="status-1">-</td>
-        <td>Audrey Hepburn</td>
-        <td>5</td>
-        <td>Sports</td>
+      <?php
+              while ($row = $result->fetch_assoc()) {
 
-      </tr>
-      <tr onclick="return confirm('FULL! Unable to Register')">
-        <td>S5678</td>
-        <td>Let's Dance</td>
-        <td>30/09/17</td>
-        <td>14:00</td>
-        <td>RM150</td>
-        <td>Dance</td>
-        <td id="status-2">Full</td>
-        <td>Krysten Ritter</td>
-        <td>4</td>
-        <td>Dance</td>
-      </tr>
-      <tr onclick="return confirm('Registered!')">
-        <td>S9101</td>
-        <td>I am Diana Prince</td>
-        <td>01/10/17</td>
-        <td>20:00</td>
-        <td>RM250</td>
-        <td>MMA</td>
-        <td id="status-3">Available</td>
-        <td>Gal Gadot</td>
-        <td>-</td>
-        <td>MMA</td>
-      </tr>
+      ?>
+      <tr>
+      <td><?php echo $row['sessionID']; ?></td>
+      <td><?php echo $row['title']; ?></td>
+      <td><?php echo $row['date']; ?></td>
+      <td><?php echo $row['time']; ?></td>
+      <td><?php echo $row['fee']; ?></td>
+      <td><?php echo $row['type']; ?></td>
+      <td><?php echo $row['status']; ?></td>
+
+
+      <?php
+      }
+      ?>
     </tbody>
   </table>
 </div>
