@@ -1,20 +1,11 @@
-<?php
-  session_start();
-  $username = $_GET['username'];
-        $con = new mysqli('localhost','root','','HELPFit');
-        $sql = "SELECT *
-         FROM trainingsession";
-        $result = $con ->query($sql);
- ?>
-
-<html>
+<html id = "html">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <title> Register Training Session</title>
-  <link rel="stylesheet" type="text/css" href="HELPFit2.css">
+  <link rel="stylesheet" type="text/css" href="HELPFit.css">
     <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
 
@@ -33,25 +24,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" <?php echo('href="homepageMember.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" href="#">HELPFit</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-      <li><a <?php echo('href="homepageMember.php?username='.$username.'"')?>>HOME</a></li>
-      <li><a <?php echo('href="registerForTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
-      <li><a <?php echo('href="viewtrainingrecordsmember.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
-    </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">SESSIONS</a></li>
+        <li><a href="#">TRAINING RECORDS</a></li>
+      </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $_SESSION["username"]; ?>
+          <span class="glyphicon glyphicon-user"></span> User's username
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>
-              <?php echo('<a href="userdetailsmember.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; User's fullname</li>
+            <br>
+            <li><a href="#"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
-              <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
-            </ul></a></li>
+            <li><a href="#"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
+          </ul></a></li>
     </ul>
   </div>
 </div>
@@ -77,23 +69,43 @@
       </tr>
     </thead>
     <tbody>
-      <?php
-              while ($row = $result->fetch_assoc()) {
+      <tr onclick="return confirm('Registered!')">
+        <td>S1234</td>
+        <td>Let's Exercise!</td>
+        <td>29/09/17</td>
+        <td>08:00</td>
+        <td>RM200</td>
+        <td>Sports</td>
+        <td id="status-1">-</td>
+        <td>Audrey Hepburn</td>
+        <td>5</td>
+        <td>Sports</td>
 
-      ?>
-      <tr>
-      <td><?php echo $row['sessionID']; ?></td>
-      <td><?php echo $row['title']; ?></td>
-      <td><?php echo $row['date']; ?></td>
-      <td><?php echo $row['time']; ?></td>
-      <td><?php echo $row['fee']; ?></td>
-      <td><?php echo $row['type']; ?></td>
-      <td><?php echo $row['status']; ?></td>
-
-
-      <?php
-      }
-      ?>
+      </tr>
+      <tr onclick="return confirm('FULL! Unable to Register')">
+        <td>S5678</td>
+        <td>Let's Dance</td>
+        <td>30/09/17</td>
+        <td>14:00</td>
+        <td>RM150</td>
+        <td>Dance</td>
+        <td id="status-2">Full</td>
+        <td>Krysten Ritter</td>
+        <td>4</td>
+        <td>Dance</td>
+      </tr>
+      <tr onclick="return confirm('Registered!')">
+        <td>S9101</td>
+        <td>I am Diana Prince</td>
+        <td>01/10/17</td>
+        <td>20:00</td>
+        <td>RM250</td>
+        <td>MMA</td>
+        <td id="status-3">Available</td>
+        <td>Gal Gadot</td>
+        <td>-</td>
+        <td>MMA</td>
+      </tr>
     </tbody>
   </table>
 </div>

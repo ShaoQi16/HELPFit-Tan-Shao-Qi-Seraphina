@@ -7,6 +7,7 @@ session_start();
  $status="Available";
  $notes="";
  $type = "Personal";
+ $username = $_SESSION['username'];
 
  $con = mysqli_connect('localhost','root','','HELPfit');
 
@@ -20,12 +21,20 @@ session_start();
    $sql = "INSERT INTO  trainingsession (title, date, time, fee, status, type)
             VALUES('$title','$date','$time','$fee','$status','$type')";
    mysqli_query($con, $sql);
-   $sql2 = "INSERT INTO personaltraining (notes)
-          VALUES('$notes')";
-   mysqli_query($con, $sql2);
-   echo "<script>
-             alert('Your session has been added');
-             location.href='recordNewTrainingSession.php';
-         </script>"; exit;
+   $query = "SELECT sessionID FROM trainingsession where title = '$title'";
+   $result =  $con ->query($query);
+   while($row = $result->fetch_assoc()){
+     $sessionID = $row['sessionID'];
+     $sql2 = "INSERT INTO personaltraining (sessionID, notes)
+            VALUES('$sessionID','$notes')";
+     mysqli_query($con, $sql2);
+     $sql3 = "INSERT INTO trainersessions(username, sessionID)
+              VALUES('$username', '$sessionID')";
+     mysqli_query($con, $sql3);
+}
+     echo "<script>
+               alert('Your session has been added');
+               location.href='recordNewTrainingSession.php?username=".$username."';
+           </script>"; exit;
 }
 ?>

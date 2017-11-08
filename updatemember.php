@@ -35,5 +35,10 @@ if (isset($_POST['updatebtn'])){
             location.href='userdetailsmember.php?username=".$username."';
         </script>"; exit;
 }
+if(isset($_POST['cancelbtn'])){
+  echo "<script>
+            location.href='homepageMember.php?username=".$username."';
+        </script>"; exit;
+}
 
 ?>

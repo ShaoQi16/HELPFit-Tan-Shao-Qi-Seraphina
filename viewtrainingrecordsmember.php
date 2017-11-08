@@ -1,5 +1,10 @@
 <?php
 session_start();
+$username = $_GET['username'];
+$_SESSION['username'] = $username;
+$con = new mysqli('localhost','root','','HELPFit');
+$query = "SELECT username, sessionID FROM membersessions WHERE username = '$username'";
+$result2 = $con ->query($query);
  ?>
 
 <html>
@@ -28,13 +33,13 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageMember.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageMember.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="registerForTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordsmember.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
@@ -42,9 +47,8 @@ session_start();
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["username"]; ?></li>
-            <br>
-            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li>
+              <?php echo('<a href="userdetailsmember.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -56,7 +60,7 @@ session_start();
 
 <div id="trainingrecords" class="container col-sm-10  col-sm-offset-1">
   <h3 id="pagetitle"> Training Records </h3>
-  <p id="grey" class="hidden-xs">&nbsp; View your past records. Click on the training session to review your trainer.</p>
+  <p id="grey" class="hidden-xs">&nbsp; View your past records. Click on the sessionID to review your trainer.</p>
   <br>
   <div class="scrollable">
   <table id="trainingrecordstb" class="table table-hover">
@@ -70,55 +74,32 @@ session_start();
       </tr>
     </thead>
     <tbody>
-      <tr onclick="location.href='reviewtrainerpersonal.html'">
-        <td>1000</td>
-        <td>xxxxxxx xxxxxxxxxxxxxxxxxxxx</td>
-        <td>13/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainer.html'">
-        <td>2354</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>15/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainer.html'">
-        <td>3342</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>16/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainerpersonal.html'">
-        <td>3643</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>17/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainer.html'">
-        <td>4465</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>19/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainerpersonal.html'">
-        <td>4756</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>20/9/17</td>
-        <td>17:00</td>
-        <td>Personal</td>
-      </tr>
-      <tr onclick="location.href='reviewtrainer.html'">
-        <td>5342</td>
-        <td>xxxx xxxxxxxxxxxx xxxxxx</td>
-        <td>21/9/17</td>
-        <td>17:00</td>
-        <td>Group</td>
-      </tr>
+      <?php
+                while($row = $result2->fetch_assoc()){
+                  $session_ID = $row['sessionID'];
+                   $sql2 = "SELECT sessionID,title, date, time, type FROM trainingsession WHERE sessionID = '$session_ID'";
+                   $result = $con ->query($sql2);
+                   while($row = $result->fetch_assoc()){
+      ?>
+      <tr>
+      <td><?php
+              if($row['type'] == "Personal"){
+                echo('<a href="reviewtrainerpersonal.php?session_ID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
+              }
+              if($row['type'] == "Group"){
+                echo('<a href="reviewtrainer.php?session_ID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
+              }
+          ?>
+              </td>
+      <td><?php echo $row['title']; ?></td>
+      <td><?php echo $row['date']; ?></td>
+      <td><?php echo $row['time']; ?></td>
+      <td><?php echo $row['type']; ?></td>
+      <?php
+    }
+  }
+    ?>
+    </tr>
     </tbody>
   </table>
 </div>

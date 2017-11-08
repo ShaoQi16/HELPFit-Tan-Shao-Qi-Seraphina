@@ -1,3 +1,19 @@
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+}
+
+if(mm<10) {
+    mm = '0'+mm
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+
+
 var usermember;
 function member() {
     document.getElementById('memberbtn').style.color= "#DEDFDF";
@@ -90,15 +106,20 @@ function validateForm() {
   document.getElementById("passworderror").style.display ='none';
     document.getElementById("repeatpassworderror").style.display ='none';
     document.getElementById("specialityerror").style.display ='none';
-  return true;
+    if(window.confirm("Are you sure you want to sign up?")== true){
+      return true;
+    }
+    else{
+      return false;
+    }
 }
 function validateForm2() {
-  var email = document.forms["signupform"]["email"].value;
+  var email = document.forms["updateform"]["email"].value;
   atpos = email.indexOf("@");
   dotpos = email.lastIndexOf(".");
-  var pw = document.forms["signupform"]["password"].value;
-  var pwl = document.forms["signupform"]["password"].value.length;
-  var rpw = document.forms["signupform"]["repeatpassword"].value;
+  var pw = document.forms["updateform"]["password"].value;
+  var pwl = document.forms["updateform"]["password"].value.length;
+  var rpw = document.forms["updateform"]["repeatpassword"].value;
   if(email!=""){
     if (atpos < 1 || ( dotpos - atpos < 2 )) {
         document.getElementById("emailerror2").style.display ='block';
@@ -121,16 +142,30 @@ function validateForm2() {
   document.getElementById("emailerror2").style.display ='none';
   document.getElementById("passworderror").style.display ='none';
   document.getElementById("repeatpassworderror").style.display ='none';
-  return true;
+  if(window.confirm("Are you sure you want to update details?")== true){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+function review(value){
+  if(value < today){
+    document.getElementById("reviewpopup").style.display ='block';
+  }
+  else{
+    alert('Date of the training has not yet passed. Not allowed to review.');
+  }
+}
 
-}
-function review(){
-  document.getElementById("reviewpopup").style.display ='block';
-}
-function submit(){
-    alert("The review has been submitted. Thank you.");
-    document.getElementById("reviewpopup").style.display ='none';
-    var btn = document.getElementById("reviewbtn"); btn.disabled = true;
+
+function submitreview(){
+    var star = document.forms["reviewform"]["star"].value;
+    if (star != '1' && star != '2' && star != '3' && star != '4' && star != '5') {
+      alert('Please enter a rating to submit');
+      return false;
+    }
+    return true;
 }
 function updatetitle(){
   document.getElementById("updateTitle").style.display ='block';
@@ -285,3 +320,15 @@ function validateFormLogIn(){
 function uniqueUsername(){
   document.getElementById("uniqueUsername").style.display = "block";
 }
+function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }

@@ -59,11 +59,10 @@ session_start();
          $result2 = mysqli_query($con, $query2);
          if(mysqli_num_rows($result2)==1){
            $userlogin = mysqli_fetch_assoc($result2);
-           $_SESSION['username'] = $username;
            $_SESSION['fullname'] = $fullname;
            echo "<script>
                     alert('Successful login.');
-                    location.href='homepage.php?username=".$username."';
+                    location.href='homepageMember.php?username=".$username."';
                 </script>"; exit;
        }
        else{
@@ -80,7 +79,6 @@ session_start();
             </script>"; exit;
     }
   }
-  echo "error";
   if($user2=="Trainer"){
     $query3 = "SELECT * FROM trainer WHERE username='$username'";
     $result = mysqli_query($con, $query3);
@@ -93,7 +91,7 @@ session_start();
           $_SESSION['fullname'] = $fullname;
           echo "<script>
                    alert('Successful login.');
-                   location.href='homepage.php?username=".$username."';
+                   location.href='homepageTrainer.php?username=".$username."';
                </script>"; exit;
       }
       else{
@@ -110,7 +108,6 @@ session_start();
            </script>"; exit;
    }
  }
- echo "error";
  }
 
 

@@ -29,7 +29,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="signup.html"> Sign Up </a></li>
+        <li><a href="signup.html"> Sign Up &nbsp;&nbsp; </a></li>
     </ul>
   </div>
 </div>
@@ -41,35 +41,29 @@
         <h2 id="pagetitle"><b> Log in</b></h2>
         <form name="loginform" action="server.php" method="post">
           <div class="row">
-          <label class="radio col-sm-5">
+          <label class="radio col-sm-5 col-xs-5">
             <input name="user2" value="Member" type="radio" checked="checked">
             <div class="btn col-sm-12" id="memberbtn" onclick="member()"> Member </div>
           </label>
           <div>
-            <div class="col-sm-2"><h5 id="or"><br> OR </h5></div>
+            <div class="col-sm-2 col-xs-2"><h5 id="or"><br> OR </h5></div>
           </div>
-          <label class="radio col-sm-5">
+          <label class="radio col-sm-5 col-xs-5">
             <input name="user2" value="Trainer" type="radio">
             <div class="btn col-sm-12" id="trainerbtn" onclick="trainer()"> Trainer </div>
-          </label>
-        </div>
-          <br>
+          </label></div><br>
           <div class="row">
           <div class="form-group">
                 <input type="text" name="username" class="form-control input-lg" id="inputUsername"
                  placeholder="Username" required>
-            </div>
-          </div>
+            </div></div>
             <div class="row">
             <div class="form-group">
                   <input type="password" name="password" class="form-control input-lg" id="inputPassword"
                   placeholder="Password" required>
-              </div>
-            </div>
-            <br>
+              </div></div><br>
             <button id="signupbutton" name="login" type="submit" class="btn-lg btn-block"> Log In to HELPFit</button>
-        </form>
-        <br>
+        </form><br>
         <div style="text-align:center">
         <p id="grey"><b> Not a user?<button id ="grey" type="button"
            class="btn-link" onclick="location.href='signup.html';"> Sign Up! </button></b></p>

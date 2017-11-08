@@ -1,5 +1,7 @@
 <?php
 session_start();
+$username = $_GET['username'];
+$_SESSION['username'] = $username;
  ?>
 
 <html id="html">
@@ -33,13 +35,13 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageTrainer.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageTrainer.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="recordNewTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordstrainer.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
@@ -49,7 +51,7 @@ session_start();
             <br>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
             <br>
-            <li><a href="userdetailsmember.html"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><?php echo('<a href="userdetailstrainer.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>

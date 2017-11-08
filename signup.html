@@ -25,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php"> Log In</a></li>
+        <li><a href="login.php"> Log In &nbsp;&nbsp;</a></li>
     </ul>
   </div>
 </div>
@@ -36,13 +36,13 @@
           <h2 id="pagetitle"><b> Create an account </b></h2>
           <form name="signupform" action="server.php" method="post">
           <div class="row">
-          <label class="radio col-sm-5">
+          <label class="radio col-sm-5 col-xs-5">
             <input name="user" value="Member" type="radio" checked="checked">
             <div class="btn col-sm-12" id="memberbtn" onclick="member()"> Member </div>
           </label>
-            <div class="col-sm-2"><h5 id="or"><br> OR </h5></div>
+            <div class="col-sm-2 col-xs-2"><h5 id="or"><br> OR </h5></div>
 
-          <label class="radio col-sm-5">
+          <label class="radio col-sm-5 col-xs-5">
             <input name="user" value="Trainer" type="radio">
             <div class="btn col-sm-12" id="trainerbtn" onclick="trainer()"> Trainer </div>
           </label></div>
@@ -87,7 +87,7 @@
                 <option value="Beginner">Beginner</option><option value="Advanced">Advanced</option><option value="Expert">Expert</option>
             </select></div></div>
 
-            <button id="signupbutton" type="submit" name="signup" value="Sign Up" class="btn-lg btn-block" onclick="validateForm()"> Sign Up</button>
+            <button id="signupbutton" type="submit" name="signup" value="Sign Up" class="btn-lg btn-block" onclick="return validateForm();"> Sign Up</button>
         </form>
           <br>
           <div style="text-align:center">

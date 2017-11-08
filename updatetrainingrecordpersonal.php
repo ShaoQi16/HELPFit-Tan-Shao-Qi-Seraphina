@@ -1,5 +1,6 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
 $con = new mysqli('localhost','root','','HELPFit');
 $sessionID = $_GET['session_ID'];
 $sql = "SELECT sessionID, title, date, time, fee, status FROM trainingsession where sessionID = $sessionID";
@@ -36,23 +37,21 @@ $result2 = $con ->query($sql2);
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageTrainer.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageTrainer.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="recordNewTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordstrainer.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $_SESSION["username"]; ?>
+          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $username; ?>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["username"]; ?></li>
-            <br>
-            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><?php echo('<a href="userdetailstrainer.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -72,38 +71,33 @@ $result2 = $con ->query($sql2);
               while($row = $result->fetch_assoc()){
     ?>
       <tr>
-        <th width = "40%">Title</th>
-        <td><button class="btn-link" onclick="updatetitle2()"><?php echo $row['title']; ?></button></td>
+        <th id="grey" width = "40%">Title</th>
+        <td id="grey"><button class="btn-link" onclick="updatetitle2()"><?php echo $row['title']; ?></button></td>
       </tr>
       <tr>
-        <th>Date</th>
-        <td><button class="btn-link" onclick="updatedate2()"><?php echo $row['date']; ?></td>
+        <th id="grey">Date</th>
+        <td id="grey"><button class="btn-link" onclick="updatedate2()"><?php echo $row['date']; ?></td>
       </tr>
       <tr>
-        <th>Time</th>
-        <td><button class="btn-link" onclick="updatetime2()"><?php echo $row['time']; ?></td>
+        <th id="grey">Time</th>
+        <td id="grey"><button class="btn-link" onclick="updatetime2()"><?php echo $row['time']; ?></td>
       </tr>
       <tr>
-        <th>Fee</th>
-        <td><button class="btn-link" onclick="updatefee2()"><?php echo "RM ".$row['fee']; ?></td>
+        <th id="grey">Fee</th>
+        <td id="grey"><button class="btn-link" onclick="updatefee2()"><?php echo "RM ".$row['fee']; ?></td>
       </tr>
       <tr>
-        <th>Status</th>
-        <td><button class="btn-link" onclick="updatestatus2()"><?php echo $row['status']; ?></td>
+        <th id="grey">Status</th>
+        <td id="grey"><button class="btn-link" onclick="updatestatus2()"><?php echo $row['status']; ?></td>
       </tr>
       <?php
-      }
-      ?>
-      <?php
-                while($row = $result2->fetch_assoc()){
+      }  while($row = $result2->fetch_assoc()){
       ?>
       <tr>
-        <th>Notes</th>
-        <td><button class="btn-link" onclick="updatenotes()"><?php echo $row['notes']; ?></td>
+        <th id="grey">Notes</th>
+        <td id="grey"><button class="btn-link" onclick="updatenotes()"><?php echo $row['notes']; ?></td>
       </tr>
-        <?php
-          }
-        ?>
+        <?php  }  ?>
     </table>
 </div>
 </div>
@@ -111,8 +105,8 @@ $result2 = $con ->query($sql2);
 <div class="col-sm-5 col-xs-12">
   <br/>
     <div id="updateTitle" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Title: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Title: </h5>
       <form name="titleform" action="updatep.php" method="post">
       <input type="text" name="title" class="form-control input-sm" id="inputtitle" required>
       <br>
@@ -120,8 +114,8 @@ $result2 = $con ->query($sql2);
       </form>
     </div>
     <div id="updateDate" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Date: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Date: </h5>
       <form name="dateform" action="updatep.php" method="post">
       <input type="text" name="date" class="form-control input-sm" id="inputdate" required>
       <br>
@@ -129,8 +123,8 @@ $result2 = $con ->query($sql2);
       </form>
     </div>
     <div id="updateTime" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Time: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Time: </h5>
       <form name="timeform" action="updatep.php" method="post">
       <input type="text" name="time" class="form-control input-sm" id="inputtime" required>
       <br>
@@ -138,8 +132,8 @@ $result2 = $con ->query($sql2);
       </form>
     </div>
     <div id="updateFee" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Fee: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Fee: </h5>
       <form name="feeform" action="updatep.php" method="post">
       <input type="text" name="fee" class="form-control input-sm" id="inputfee" required>
       <br>
@@ -147,8 +141,8 @@ $result2 = $con ->query($sql2);
       </form>
     </div>
     <div id="updateStatus" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Status: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Status: </h5>
       <form name="statusform" action="updatep.php" method="post">
       <input type="text" name="status" class="form-control input-sm" id="inputstatus" required>
       <br>
@@ -156,8 +150,8 @@ $result2 = $con ->query($sql2);
       </form>
     </div>
     <div id="updateNotes" class="col-sm-offset-2 col-sm-10 col-xs-offset-1 col-xs-10 editpopup">
-      <h4><b>Edit</b></h4>
-      <h5> Notes: </h5>
+      <h4 id="greyt"><b>Edit</b></h4>
+      <h5 id="grey"> Notes: </h5>
       <form name="notesform" action="updatep.php" method="post">
       <input type="text" name="notes" class="form-control input-sm" id="inputstatus" required>
       <br>

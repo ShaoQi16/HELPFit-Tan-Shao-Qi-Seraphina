@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+$username = $_GET['username'];
+$_SESSION['username'] = $username;
  ?>
 
 <html>
@@ -30,23 +31,21 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageTrainer.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageTrainer.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="recordNewTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordstrainer.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
-          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $_SESSION["username"]; ?>
+          <span class="glyphicon glyphicon-user"></span> &nbsp;<?php echo $username; ?>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["fullname"]; ?></li>
-            <br>
-            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li><?php echo('<a href="userdetailstrainer.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -59,14 +58,14 @@ session_start();
 
 
 <div class="row text-center">
-  <h3 id="title"> Choose a type of training:</h3>
+  <h3 id="title"> Choose a type of training to record:</h3>
   <br><br><br>
   <div class="col-sm-offset-1 col-sm-5 col-xs-12 text-center">
-    <a href="recordpersonal.php"><img id="hoverbtn" class="img-circle" src="fitnesspic3.jpg" alt="" width="220" height="220"></a>
+    <a <?php echo('href="recordpersonal.php?username='.$username.'"')?>><img id="hoverbtn" class="img-circle" src="fitnesspic3.jpg" alt="" width="220" height="220"></a>
     <h2 id="headings">Personal Training</h2>
   </div>
   <div class="col-sm-5 col-xs-12 text-center">
-    <a href="recordgroup.php"><img id="hoverbtn" class="img-circle" src="fitnesspic2.jpg" alt="" width="220" height="220"></a>
+    <a <?php echo('href="recordgroup.php?username='.$username.'"')?>><img id="hoverbtn" class="img-circle" src="fitnesspic2.jpg" alt="" width="220" height="220"></a>
     <h2 id="headings">Group Training</h2>
     <br><br>
   </div>

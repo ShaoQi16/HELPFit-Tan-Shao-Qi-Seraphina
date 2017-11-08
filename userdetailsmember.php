@@ -7,7 +7,6 @@ $result = $con->query($sql1);
 $sql2 = "SELECT username, level FROM member where username = '$username'";
 $result2 = $con->query($sql2);
 $_SESSION['username'] = $username;
-
  ?>
 
 <html>
@@ -36,13 +35,13 @@ $_SESSION['username'] = $username;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageMember.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageMember.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="registerForTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordsmember.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
@@ -50,9 +49,8 @@ $_SESSION['username'] = $username;
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["username"]; ?></li>
-            <br>
-            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li>
+              <?php echo('<a href="userdetailsmember.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -75,26 +73,26 @@ $_SESSION['username'] = $username;
                 while($row = $result->fetch_assoc()){
       ?>
     <div class="row">
-      <label class="col-xs-12 col-sm-3">Full Name:</label>
+      <label id="grey" class="col-xs-12 col-sm-3">Full Name:</label>
       <div class="form-group col-sm-7 col-xs-9">
           <input type="text" name="fullname" class="form-control input-sm" id="inputFullname" placeholder="<?php echo $row['fullname'];?>">
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-12 col-sm-3">Email:</label>
+      <label  id="grey"class="col-xs-12 col-sm-3">Email:</label>
       <div class="form-group col-sm-7 col-xs-9">
           <input type="text" name="email" class="form-control input-sm" id="inputEmail" placeholder="<?php echo $row['email'];?>">
           <p id="emailerror2" class="errormessage"> Your email is in a wrong format, please enter again. </p>
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-12 col-sm-3">Username:</label>
+      <label id="grey" class="col-xs-12 col-sm-3">Username:</label>
       <div class="form-group col-sm-7 col-xs-12">
         <p><?php echo $row['username'];?></p>
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-12 col-sm-3">Change password:</label>
+      <label  id="grey"class="col-xs-12 col-sm-3">Change password:</label>
       <div class="form-group col-sm-7 col-xs-9">
           <input type="password" name="password" class="form-control input-sm" id="inputPassword" placeholder="......."
           oninput="repeatpassword()">
@@ -102,7 +100,7 @@ $_SESSION['username'] = $username;
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-12 col-sm-3">Repeat new password:</label>
+      <label  id="grey"class="col-xs-12 col-sm-3">Repeat new password:</label>
       <div class="form-group col-sm-7 col-xs-9">
           <input type="password" name="repeatpassword" class="form-control input-sm" id="inputrepeatPassword">
            <p id="repeatpassworderror" class="errormessage"> Your passwords do not match, please try again. </p>
@@ -125,7 +123,7 @@ $_SESSION['username'] = $username;
       ?>
     </div>
     <div class="row">
-    <label class="col-xs-12 col-sm-3">Level:</label>
+    <label id="grey" class="col-xs-12 col-sm-3">Level:</label>
     <div class="form-group col-sm-7 col-xs-9">
       <select name="level" class="form-control">
           <option value="Beginner" <?php echo $beginner; ?>>Beginner</option><option value="Advanced" <?php echo $advanced; ?>>Advanced</option><option value = "Expert"<?php echo $expert; ?>>Expert</option>
@@ -138,8 +136,8 @@ $_SESSION['username'] = $username;
 
     <div class="row">
       <div class="col-sm-offset-8 col-xs-offset-6">
-    <button id="btn1" type="submit" name="updatebtn" class="btn-success btn-sm" onclick="validateForm2()"> Update </button>
-    <button id="btn2" type="submit" name="cancelbtn" class="btn-secondary btn-sm" onclick="location.href='homepage.html';"> Cancel </button>
+    <button id="btn1" type="submit" name="updatebtn" class="btn-success btn-sm" onclick="return validateForm2();"> Update </button>
+    <button id="btn2" type="submit" name="cancelbtn" class="btn-secondary btn-sm"> Cancel </button>
   </div>
 </div>
 </form>

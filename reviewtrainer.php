@@ -1,5 +1,16 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
+$con = new mysqli('localhost','root','','HELPFit');
+$sessionID = $_GET['session_ID'];
+$sql = "SELECT sessionID, title, date, time, fee, status FROM trainingsession where sessionID = $sessionID";
+$_SESSION['sessionID'] = $sessionID;
+$result = $con ->query($sql);
+$sql2 = "SELECT sessionID, classType, maxParticipants, numParticipants FROM grouptraining where sessionID = $sessionID";
+$result2 = $con ->query($sql2);
+$sql3 = "SELECT username, sessionID FROM trainersessions where sessionID = $sessionID";
+$result3 = $con->query($sql3);
+
  ?>
 <html>
 <head>
@@ -27,13 +38,13 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="homepage.php"><img id="logo" src="fitnessLogo.png"></a>
+      <a class="navbar-brand" <?php echo('href="homepageMember.php?username='.$username.'"')?>><img id="logo" src="fitnessLogo.png"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
-      <li><a href="homepage.php">HOME</a></li>
-      <li><a href="recordNewTrainingSession.php">SESSIONS</a></li>
-      <li><a href="viewtrainingrecordstrainer.php">TRAINING RECORDS</a></li>
+      <li><a <?php echo('href="homepageMember.php?username='.$username.'"')?>>HOME</a></li>
+      <li><a <?php echo('href="registerForTrainingSession.php?username='.$username.'"')?>>SESSIONS</a></li>
+      <li><a <?php echo('href="viewtrainingrecordsmember.php?username='.$username.'"')?>>TRAINING RECORDS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown">
@@ -41,9 +52,8 @@ session_start();
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <br>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fa fa-user"></span>&nbsp; <?php echo $_SESSION["username"]; ?></li>
-            <br>
-            <li><a href="userdetailsmember.php"><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
+            <li>
+              <?php echo('<a href="userdetailsmember.php?username='.$username.'">')?><span class="fa fa-pencil"></span> &nbsp;Update Details</a></li>
             <li class="divider"></li>
             <li><a href="login.php"><span class="fa fa-sign-out"></span> &nbsp;Sign out</a></li>
           </ul></a></li>
@@ -54,82 +64,126 @@ session_start();
 
 
 
-<div id="reviewtrainer" class="container">
+<div class="row">
+<div id="updatetraining" class="container col-sm-offset-1 col-sm-5 col-xs-10 col-xs-offset-1">
   <h3 id="pagetitle"> Training Record </h3>
-  <p id="grey" class="hidden-xs">&nbsp; View your record and review your trainer.</p>
+  <p id="grey" class="hidden-xs">&nbsp; View your record and choose a detail to update.</p>
   <br>
   <div class="row scrollbar">
-  <div class="col-sm-10 col-sm-offset-1">
+  <div class="col-sm-12">
   <table class="table">
+    <?php
+              while($row = $result->fetch_assoc()){
+    ?>
       <tr>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Fee</th>
-        <th>Status</th>
-        <th>Class Type</th>
-        <th>Max</th>
-        <th>Num</th>
+        <th id="grey"width="40%">Title</th>
+        <td id="grey"><?php echo $row['title']; ?></td>
       </tr>
       <tr>
-        <td>xxxxxxx xxxxxx</td>
-        <td>15/9/17</td>
-        <td>17:00</td>
-        <td>RM100</td>
-        <td>Active</td>
-        <td>Yoga</td>
-        <td>10</td>
-        <td>9</td>
+        <th id="grey">Date</th>
+        <td id="grey"><?php echo $row['date']; ?></td>
+        <?php $date = $row['date']; ?>
+      </tr>
+      <tr>
+        <th id="grey">Time</th>
+        <td id="grey"><?php echo $row['time']; ?></td>
+      </tr>
+      <tr>
+        <th id="grey">Fee</th>
+        <td id="grey"><?php echo "RM ".$row['fee']; ?></td>
+      </tr>
+      <tr>
+        <th id="grey">Status</th>
+        <td id="grey"><?php echo $row['status']; ?></td>
+      </tr>
+      <?php
+      }
+                while($row = $result2->fetch_assoc()){
+      ?>
+      <tr>
+        <th id="grey">Class Type</th>
+        <td id="grey"><?php echo $row['classType']; ?></td>
+      </tr>
+      <tr>
+        <th id="grey">Max</th>
+        <td id="grey"><?php echo $row['maxParticipants']; ?></td>
+      </tr>
+      <tr>
+        <th id="grey">Num</th>
+        <td id="grey"><?php echo $row['numParticipants']; ?></td>
+          <?php
+              }
+          ?>
       </tr>
     </table>
 </div>
 </div>
 </div>
-<br><br>
-
-  <div class="row">
-  <div id="reviewtrainer2" class="col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10 text-center">
-    <br><br>
+<br class="brmobile"/>
+  <div class="col-sm-6 col-xs-12">
+  <div id="reviewtrainer2" class="col-sm-10 col-xs-offset-1 col-xs-10 text-center">
+    <br>
       <div class="row">
       <div class="col-sm-offset-1 col-sm-1">
-      <img class="img-circle" src="fitnesspic17.jpg" alt="" width="140" height="140">
+      <?php
+        while($row = $result3->fetch_assoc()){
+          $trainerusername = $row['username'];
+      ?>
+      <img class="img-circle" <?php echo ('src="getprofilepic.php?username='.$trainerusername.'"'); ?> alt="" width="140" height="140">
       </div>
       <div class="col-sm-offset-5">
         <br>
-        <h5 id="trainer"> Trainer name: xxxxxxxxx</h5>
-        <h5 id="trainer"> Speciality:  xxxxxxxxx</h5>
-        <button id="reviewbtn" type="button" class="btn-success btn-sm" onclick="review()"> Review </button>
-      </div>
-    </div>
-    </div>
-  </div>
+        <?php
+                    $_SESSION['trainerusername'] = $trainerusername;
+                    $sql5 = "SELECT username, fullname FROM user WHERE username = '$trainerusername'";
+                    $result5 = $con->query($sql5);
+                    $sql4 = "SELECT username, speciality FROM trainer WHERE username = '$trainerusername'";
+                    $result4 = $con->query($sql4);
+                    while($row = $result5->fetch_assoc()){
+        ?>
+        <h5 id="trainer"> Trainer name: <?php echo $row['fullname']; ?> </h5>
+        <?php
+            }
+            while($row = $result4->fetch_assoc()){
+         ?>
+        <h5 id="trainer"> Speciality: <?php echo $row['speciality']; ?> </h5>
+        <?php
+            }}
+        ?>
+
+        <br>
+        <button id="reviewbtn" type="button" class="btn-success btn-sm" onclick="review('<?php echo $date ?>')"> Review </button>
+      </div></div>
 
     <div id="reviewpopup" class="row">
-    <div id="review" class="container col-sm-offset-3 col-sm-6">
+      <form <?php echo('action="reviewgroup.php?username='.$username.'"')?> method="post" name ="reviewform">
       <div class="row">
         <div class="form-group">
-          <br><br>
-          <label class="col-xs-12 col-sm-3">Rate him/her:</label>
-          <div class="rating col-sm-8 col-xs-12 text-left">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-          </div>
-      </div>
-    </div>
-    <br>
+          <br>
+          <label id="grey" class="col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-3 text-left">Rate him/her:</label>
+          <div class="stars text-left">
+              <input class="star star-5" id="star-5" type="radio" name="star" value = "5"/>
+              <label class="star star-5" for="star-5"></label>
+              <input class="star star-4" id="star-4" type="radio" name="star" value = "4"/>
+              <label class="star star-4" for="star-4"></label>
+              <input class="star star-3" id="star-3" type="radio" name="star" value = "3"/>
+              <label class="star star-3" for="star-3"></label>
+              <input class="star star-2" id="star-2" type="radio" name="star" value = "2"/>
+              <label class="star star-2" for="star-2"></label>
+              <input class="star star-1" id="star-1" type="radio" name="star" value = "1"/>
+              <label class="star star-1" for="star-1"></label>
+          </div></div></div>
     <div class="row">
       <div class="form-group">
-          <label class="col-xs-12 col-sm-2">Comments:</label>
-          <textarea class="col-sm-7 col-xs-offset-1 col-xs-11" rows="5" id="comment"></textarea>
-        </div>
-    </div>
-    <br>
-    <div class="col-sm-offset-9 col-xs-offset-10">
-    <button id="btn1" type="button" class="btn-secondary btn-sm" onclick="submit()"> Submit</button>
+          <label id="grey" class="col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-2 text-left">Comments:</label>
+          <textarea id="grey" name = "comments" class="col-sm-6 col-xs-offset-1 col-xs-10" rows="3" id="comment"></textarea>
+        </div></div><br>
+    <div class="col-sm-offset-7 col-xs-offset-8">
+    <button id="btn1" name = "reviewbtn" type="submit" class="btn-secondary btn-sm" onclick="return submitreview();"> Submit</button>
   </div>
-  </div>
-</div>
-  <br>
-</div>
+</form>
+</div></div></div></div>
+  <br><br>
 <footer>
     <br>
     <table align="center">
