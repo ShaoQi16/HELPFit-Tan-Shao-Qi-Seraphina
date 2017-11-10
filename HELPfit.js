@@ -331,3 +331,12 @@ function readURL(input) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+function confirm(){
+  if(window.confirm("Are you sure you want to register for this training session?")== true){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
