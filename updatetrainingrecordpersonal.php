@@ -62,7 +62,7 @@ $result2 = $con ->query($sql2);
 <div class="row">
 <div id="updatetraining" class="container col-sm-offset-1 col-sm-5 col-xs-10 col-xs-offset-1">
   <h3 id="pagetitle"> Training Record </h3>
-  <p id="grey" class="hidden-xs">&nbsp; View your record and click on a detail to update.</p>
+  <p id="grey" class="hidden-xs">&nbsp; View your record and <b>click on a detail</b> to update.</p>
   <br>
   <div class="row scrollbar">
   <div class="col-sm-12">

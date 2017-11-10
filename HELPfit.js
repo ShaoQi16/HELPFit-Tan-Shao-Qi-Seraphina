@@ -158,7 +158,6 @@ function review(value){
   }
 }
 
-
 function submitreview(){
     var star = document.forms["reviewform"]["star"].value;
     if (star != '1' && star != '2' && star != '3' && star != '4' && star != '5') {

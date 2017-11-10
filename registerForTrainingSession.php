@@ -2,8 +2,7 @@
   session_start();
   $username = $_GET['username'];
         $con = new mysqli('localhost','root','','HELPFit');
-        $sql = "SELECT *
-         FROM trainingsession";
+        $sql = "SELECT * FROM trainingsession";
         $result = $con ->query($sql);
  ?>
 
