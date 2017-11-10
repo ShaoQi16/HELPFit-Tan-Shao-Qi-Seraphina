@@ -19,6 +19,15 @@ session_start();
    $fee = mysqli_real_escape_string($con, $_POST['fee']);
    $classType = mysqli_real_escape_string($con, $_POST['classType']);
    $maxParticipants = mysqli_real_escape_string($con, $_POST['maxParticipants']);
+   $datenow = date("Y-m-d");
+   echo $datenow;
+   if($date < $datenow){
+     echo "<script>
+               alert('Please enter a valid date.');
+               location.href='recordgroup.php?username=".$username."';
+           </script>"; exit;
+   }
+   else{
 
    $sql = "INSERT INTO  trainingsession (title, date, time, fee, status, type)
             VALUES('$title','$date','$time','$fee','$status','$type')";
@@ -33,10 +42,11 @@ session_start();
      $sql3 = "INSERT INTO trainersessions(username, sessionID)
               VALUES('$username', '$sessionID')";
     mysqli_query($con, $sql3);
-  }
+    }
      echo "<script>
                alert('Your session has been added');
                location.href='recordNewTrainingSession.php?username=".$username."';
            </script>"; exit;
+}
 }
 ?>
