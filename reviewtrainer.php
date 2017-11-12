@@ -129,7 +129,8 @@ $result3 = $con->query($sql3);
         while($row = $result3->fetch_assoc()){
           $trainerusername = $row['username'];
       ?>
-      <img class="img-circle" <?php echo ('src="getprofilepic.php?username='.$trainerusername.'"'); ?> alt="" width="140" height="140">
+      <img class="img-circle" <?php echo ('src="getprofilepic.php?username='.$trainerusername.'"'); ?>
+       alt="" width="140" height="140">
       </div>
       <div class="col-sm-offset-5">
         <br>

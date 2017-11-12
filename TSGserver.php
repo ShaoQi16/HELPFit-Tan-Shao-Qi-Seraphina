@@ -20,7 +20,6 @@ session_start();
    $classType = mysqli_real_escape_string($con, $_POST['classType']);
    $maxParticipants = mysqli_real_escape_string($con, $_POST['maxParticipants']);
    $datenow = date("Y-m-d");
-   echo $datenow;
    if($date < $datenow){
      echo "<script>
                alert('Please enter a valid date.');

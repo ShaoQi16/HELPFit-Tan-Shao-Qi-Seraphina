@@ -18,11 +18,26 @@
   <link rel="stylesheet" type="text/css" href="HELPFit2.css">
     <link href="https://fonts.googleapis.com/css?family=Mallanna" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
-    <script type = "text/javascript" src="HELPfit.js"></script>
+    <script>
+    function confirmregister(){
+      if(window.confirm("Are you sure you want to register for this training session?")== true){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    </script>
+    <style>
+    #regTrainSession{
+      background-image: url("regtrainingsession.jpg");
+      background-size:cover;
+    }
+    </style>
 </head>
 
 <div >
-<body id="regSession">
+<body id="regTrainSession">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
@@ -85,10 +100,10 @@
       <tr>
         <td><?php
                 if($row['type'] == "Personal"){
-                  echo('<a onclick= "return confirm();" href="registerpersonal.php?sessionID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
+                  echo('<a onclick= "return confirmregister();" href="registerpersonal.php?sessionID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
                 }
                 if($row['type'] == "Group"){
-                  echo('<a href="registergroup.php?sessionID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
+                  echo('<a onclick= "return confirmregister();" href="registergroup.php?sessionID='.$row['sessionID'].'">'. $row['sessionID'].'</a>');
                 }
             ?>
                 </td>

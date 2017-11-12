@@ -149,10 +149,6 @@ display: none;
   text-align: left;
 }
 
-#regSession{
-  background-image: url("newRegBody.jpg");
-  background-size:cover;
-}
 #regTSession{
   background-color: rgba(222,223,223,0.8);
   height:80%;
